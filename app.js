@@ -21,14 +21,10 @@ app.use(express.static(path.join(__dirname, "public")));
 app.set("trust proxy", 1);
 app.enable("trust proxy");
 
-// app.use(
-//   cors({
-//     origin: ['http://localhost:3000']  // <== URL of our future React app
-//   })
-// );
+
 app.use(
   cors({
-    origin: ['magenta-baklava-f4f216.netlify.app']  // <== URL of our future React app
+    origin: ['https://master--magenta-baklava-f4f216.netlify.app/']  // <== URL of our future React app
   })
 );
 
