@@ -26,26 +26,21 @@ app.use(
     origin: ['http://localhost:3000']  // <== URL of our future React app
   })
 );
+// app.use(
+//   cors({
+//     origin: ['https://master--symphonious-melomakarona-ff2243.netlify.app/']  // <== URL of our future React app
+//   })
+// );
 
 app.use("/", indexRouter);
 app.use("/users", usersRouter);
 app.use("/auth", authRouter);
 app.use("/testimonials", testimonialsRouter);
 
-app.use(function (req, res, next) {
-  next(createError(404));
-});
+// app.use(function (req, res, next) {
+//   next(createError(404));
+// });
 
-// error handler
-app.use(function (err, req, res, next) {
-  // set locals, only providing error in development
-  res.locals.message = err.message;
-  res.locals.error = req.app.get("env") === "development" ? err : {};
-
-  // render the error page
-  res.status(err.status || 500);
-  res.render("error");
-});
 
 mongoose
   .connect(process.env.MONGODB_URI)

@@ -1,4 +1,5 @@
 var express = require("express");
+var mongoose = require("mongoose")
 var router = express.Router();
 
 const Testimonial = require('../models/Testimonial')
@@ -27,7 +28,7 @@ router.get('/:testimonialId', (req, res, next) => {
     }
 
     Testimonial.findById(testimonialId)
-        .then(testimonial => res.status(200).json(testimonial))
+        .then(testimonial => res.json(testimonial))
         .catch(error => res.json(error));
 });
 
